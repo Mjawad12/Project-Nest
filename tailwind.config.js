@@ -12,6 +12,28 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        pm: "var(--Font-primary)",
+      },
+      colors: {
+        dullC: "#8E92BC",
+        hoverC: "#F5F5F7",
+        "Pn-dark-900": "#10197A",
+        "Pn-dark-800": "#1A2793",
+        "Pn-dark-700": "#2A3BB7",
+        "Pn-dark-600": "#3D53DB",
+        "Pn-default-500": "#546FFF",
+        "Pn-light-400": "#7E95FF",
+        "Pn-light-300": "#7E95FF",
+        "Pn-light-200": "#BAC8FF",
+        "Pn-light-100": "#DCE4FF",
+      },
+      fontWeight: {
+        bol: "800",
+        semi: "700",
+        med: "600",
+        reg: "500",
+      },
     },
   },
   plugins: [],

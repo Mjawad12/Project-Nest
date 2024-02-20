@@ -273,4 +273,67 @@ const arrowLeft = (
   </svg>
 );
 
-export { Icons, notification, clock, arrowLeft };
+const tasks = [
+  {
+    title: "Create Mobile App design",
+    type: "Ui/Ux",
+    date: "2/18/2024",
+    days: "15",
+    img: "https://images.unsplash.com/photo-1575318634028-6a0cfcb60c59?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGVza3RvcCUyMGNvbXB1dGVyfGVufDB8fDB8fHww",
+    instructions: [
+      "Understanding the tools in Figma",
+      "Understand the basics of making designs",
+      "Design a mobile application with Figma",
+    ],
+  },
+  {
+    title: "Write Backend API",
+    type: "Backend",
+    date: "2/20/2024",
+    days: "10",
+    img: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlci1hdXRoZW50aWNhdGlvbnxlbmdsaXNoMHx8MHw%3D",
+    instructions: [
+      "Set up development environment",
+      "Define API endpoints and data models",
+      "Implement CRUD operations for resources",
+    ],
+  },
+  {
+    title: "Implement User Authentication",
+    type: "Security",
+    date: "2/25/2024",
+    days: "7",
+    img: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlci1hdXRoZW50aWNhdGlvbnxlbmdsaXNoMHx8MHw%3D",
+    instructions: [
+      "Research and choose authentication method",
+      "Implement secure password storage",
+      "Test authentication flow with various scenarios",
+    ],
+  },
+  {
+    title: "Design Database Schema",
+    type: "Database",
+    date: "2/28/2024",
+    days: "5",
+    img: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGF0YWJhc2VzJTIwc2NoZW1hfGVufDB8fDB8fHwxNjY5NjEwOTMz",
+    instructions: [
+      "Identify entities and relationships",
+      "Define data types and constraints",
+      "Create a normalized database schema",
+    ],
+  },
+  {
+    title: "Frontend Development",
+    type: "Frontend",
+    date: "3/5/2024",
+    days: "14",
+    img: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZnJvbnRlbmR8ZW58MHx8MHw%3D",
+    instructions: [
+      "Set up project structure and dependencies",
+      "Implement user interface components",
+      "Integrate frontend with backend APIs",
+    ],
+  },
+];
+
+export { Icons, notification, clock, arrowLeft, tasks };

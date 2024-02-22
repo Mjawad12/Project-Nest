@@ -1,9 +1,10 @@
 "use client";
 import Image from "next/image";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Icons } from "../Consonants";
 import Link from "next/link";
 import { motion, stagger, useAnimate } from "framer-motion";
+import { usePathname } from "next/navigation";
 function SideBar() {
   const [selected, setselected] = useState(0);
   const [scope, animate] = useAnimate();
@@ -46,6 +47,15 @@ function SideBar() {
 }
 
 const Navitem = ({ name, svg, ind, selected, setselected }) => {
+  const path = usePathname();
+  useEffect(() => {
+    if (name === path.slice(1)) {
+      setselected(ind);
+    } else if (name === "Overview") {
+      setselected(0);
+    }
+  }, []);
+
   return (
     <motion.li
       initial={{ opacity: 0, x: -100 }}
@@ -55,10 +65,18 @@ const Navitem = ({ name, svg, ind, selected, setselected }) => {
         className={`navLi w-full rounded-xl flex justify-start items-center cursor-pointer gap-5 px-6 py-4 group  hover:bg-hoverC ${
           selected === ind ? "bg-hoverC" : "bg-transparent"
         }`}
-        href={name === "Overview" ? "/" : name}
+        href={name === "Overview" ? "/" : "/" + name}
       >
-        <div>{svg}</div>
-        <h2 className="font-pm font-semi text-[1.2rem] text-dullC group-hover:text-black ">
+        <div
+          className={selected === ind ? "*:stroke-black" : "*:stroke-[#8E92BC]"}
+        >
+          {svg}
+        </div>
+        <h2
+          className={`font-pm font-semi text-[1.2rem] text-dullC group-hover:text-black ${
+            selected === ind ? "text-black" : "text-dullC"
+          }  `}
+        >
           {name}
         </h2>
       </Link>

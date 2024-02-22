@@ -14,7 +14,7 @@ function Navbar({ name, img, statement }) {
     );
   }, []);
   return (
-    <div className="w-full  flex justify-between items-center px-9 py-8 ">
+    <div className="w-full  flex justify-between items-center px-9 py-8 overflow-hidden ">
       <motion.div
         animate={{ y: 0, opacity: 1 }}
         initial={{ y: 50, opacity: 0 }}

@@ -87,43 +87,7 @@ const Icons = [
       </svg>
     ),
   },
-  {
-    name: "Mentors",
-    svg: (
-      <>
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="#8E92BC"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M21.08 8.58003V15.42C21.08 16.54 20.48 17.58 19.51 18.15L13.57 21.58C12.6 22.14 11.4 22.14 10.42 21.58L4.48003 18.15C3.51003 17.59 2.91003 16.55 2.91003 15.42V8.58003C2.91003 7.46003 3.51003 6.41999 4.48003 5.84999L10.42 2.42C11.39 1.86 12.59 1.86 13.57 2.42L19.51 5.84999C20.48 6.41999 21.08 7.45003 21.08 8.58003Z"
-            stroke="inherit"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M12 11C13.2869 11 14.33 9.95681 14.33 8.66998C14.33 7.38316 13.2869 6.34003 12 6.34003C10.7132 6.34003 9.67004 7.38316 9.67004 8.66998C9.67004 9.95681 10.7132 11 12 11Z"
-            stroke="inherit"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M16 16.66C16 14.86 14.21 13.4 12 13.4C9.79 13.4 8 14.86 8 16.66"
-            stroke="inherit"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </>
-    ),
-  },
+
   {
     name: "Message",
     svg: (
@@ -285,18 +249,24 @@ const tasks = [
       "Understand the basics of making designs",
       "Design a mobile application with Figma",
     ],
+    description:
+      "Design the user interface and user experience for a mobile application using Figma. Focus on creating an intuitive and visually appealing design that aligns with the project requirements.",
+    slug: "create-mobile-app-design",
   },
   {
     title: "Write Backend API",
     type: "Backend",
     date: "2/20/2024",
     days: "10",
-    img: "https://images.unsplash.com/photo-1560807707-8cc77767d783?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlci1hdXRoZW50aWNhdGlvbnxlbmdsaXNoMHx8MHw%3D",
+    img: "https://images.unsplash.com/photo-1523348833955-7f5f8d273a6c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJhY2tlbmR8ZW58MHx8MHw%3D",
     instructions: [
       "Set up development environment",
       "Define API endpoints and data models",
       "Implement CRUD operations for resources",
     ],
+    description:
+      "Develop the backend API for the mobile application. Set up the development environment, define the necessary API endpoints, and implement CRUD operations for the required resources.",
+    slug: "write-backend-api",
   },
   {
     title: "Implement User Authentication",
@@ -309,6 +279,9 @@ const tasks = [
       "Implement secure password storage",
       "Test authentication flow with various scenarios",
     ],
+    description:
+      "Enhance the security of the application by implementing user authentication. Research and choose an appropriate authentication method, implement secure password storage, and thoroughly test the authentication flow.",
+    slug: "implement-user-authentication",
   },
   {
     title: "Design Database Schema",
@@ -321,6 +294,9 @@ const tasks = [
       "Define data types and constraints",
       "Create a normalized database schema",
     ],
+    description:
+      "Define the structure of the database by identifying entities, relationships, and defining data types and constraints. Create a normalized database schema that supports the requirements of the application.",
+    slug: "design-database-schema",
   },
   {
     title: "Frontend Development",
@@ -333,6 +309,9 @@ const tasks = [
       "Implement user interface components",
       "Integrate frontend with backend APIs",
     ],
+    description:
+      "Develop the frontend of the application by setting up the project structure, implementing user interface components, and integrating the frontend with the backend APIs. Ensure a seamless user experience.",
+    slug: "frontend-development",
   },
 ];
 

@@ -1,11 +1,13 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import { Icons } from "../Consonants";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { Icons, IconsAdmin } from "../Consonants";
 import Link from "next/link";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { MyContext, useMyContext, useStore } from "./Context/Mainstate";
 function SideBar() {
+  const { admin } = useMyContext();
   const [selected, setselected] = useState(0);
   const [scope, animate] = useAnimate();
   useEffect(() => {
@@ -31,16 +33,27 @@ function SideBar() {
         <h1 className="font-pm text-4xl font-semi  ">Project Nest</h1>
       </motion.div>
       <motion.ul ref={scope} className="max-w-[250px] w-full ">
-        {Icons.map((it, index) => (
-          <Navitem
-            name={it.name}
-            svg={it.svg}
-            key={index}
-            ind={index}
-            selected={selected}
-            setselected={setselected}
-          />
-        ))}
+        {!admin
+          ? Icons.map((it, index) => (
+              <Navitem
+                name={it.name}
+                svg={it.svg}
+                key={index}
+                ind={index}
+                selected={selected}
+                setselected={setselected}
+              />
+            ))
+          : IconsAdmin.map((it, index) => (
+              <Navitem
+                name={it.name}
+                svg={it.svg}
+                key={index}
+                ind={index}
+                selected={selected}
+                setselected={setselected}
+              />
+            ))}
       </motion.ul>
     </div>
   );
@@ -49,7 +62,7 @@ function SideBar() {
 const Navitem = ({ name, svg, ind, selected, setselected }) => {
   const path = usePathname();
   useEffect(() => {
-    if (name === path.slice(1)) {
+    if (path.includes(name)) {
       setselected(ind);
     } else if (name === "Overview") {
       setselected(0);
@@ -73,7 +86,7 @@ const Navitem = ({ name, svg, ind, selected, setselected }) => {
           {svg}
         </div>
         <h2
-          className={`font-pm font-semi text-[1.2rem] text-dullC group-hover:text-black ${
+          className={`font-pm font-semi text-[1.2rem]  group-hover:text-black ${
             selected === ind ? "text-black" : "text-dullC"
           }  `}
         >

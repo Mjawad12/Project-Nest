@@ -1,8 +1,10 @@
+"use client";
 import { tasks } from "@/Consonants";
-
-import React from "react";
+import React, { useRef } from "react";
 
 function page({ params, searchParams }) {
+  const proof = [{}];
+  const input = useRef();
   const selectedTask = tasks.find((it) => params.slug === it.slug);
 
   return (
@@ -16,9 +18,15 @@ function page({ params, searchParams }) {
               {selectedTask.description}
             </p>
           </div>
+          <input ref={input} type="file" className="hidden" />
           <div className="w-full flex justify-between items-center">
-            <p className="font-pm font-bol text-2xl ">Upload Proof:</p>
-            <div className="hover:scale-[1.05] transition-all flex justify-center items-center h-[3rem] cursor-pointer w-[3rem] rounded-full bg-Pn-default-500 ">
+            <p className="font-pm font-bol text-2xl ">Compeletion Proof:</p>
+            <div
+              onClick={() => {
+                input.current.click();
+              }}
+              className="hover:scale-[1.05] transition-all flex justify-center items-center h-[3rem] cursor-pointer w-[3rem] rounded-full bg-Pn-default-500 "
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -36,6 +44,22 @@ function page({ params, searchParams }) {
                 </g>
               </svg>
             </div>
+          </div>
+          <div className="w-full flex justify-start items-start gap-2">
+            {proof.map((it) => {
+              return (
+                <div className="max-w-[20rem] h-[10rem] w-full bg-gray-100 rounded-lg "></div>
+              );
+            })}
+          </div>
+
+          <div className="w-full flex items-end justify-end">
+            <button
+              className="w-[10rem] h-[3rem] rounded-lg font-pm font-med text-[1rem] text-white bg-Pn-default-500 disabled:bg-gray-400 disabled:cursor-not-allowed "
+              disabled
+            >
+              Submit
+            </button>
           </div>
         </div>
       </div>

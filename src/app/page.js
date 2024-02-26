@@ -1,4 +1,5 @@
 import Calender from "@/Components/Calender";
+
 import Navbar from "@/Components/Navbar";
 import Overview from "@/Components/Overview";
 import TaskBanner from "@/Components/TaskBanner";
@@ -15,7 +16,7 @@ export default function Home() {
         />{" "}
         <Overview />
       </div>
-      <div className="min-h-screen flex flex-col justify-start items-start  flex-1 flex-grow-[0.18] py-5 px-1 gap-9 ">
+      <div className="min-h-screen overflow-hidden flex flex-col justify-start items-start  flex-1 flex-grow-[0.27] py-5 px-1 gap-9 ">
         <Calender />
         <TaskBanner />
       </div>

@@ -51,7 +51,7 @@ export default function Setting(props) {
           </p>
         </div>
         <input
-          type="password"
+          type="text"
           placeholder={props.name}
           className="max-w-[25rem] w-full h-[3rem] text-[1.1rem] 
               rounded-lg px-2 outline-none border border-gray-400 "

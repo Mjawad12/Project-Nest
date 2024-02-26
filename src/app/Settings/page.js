@@ -1,7 +1,7 @@
 import Setting from "@/Components/Setting";
 import React from "react";
 
-function page() {
+async function page() {
   return (
     <div className="w-full px-6 py-5">
       <Setting

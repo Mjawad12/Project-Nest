@@ -1,9 +1,8 @@
 import SideBar from "@/Components/SideBar";
 import "./globals.css";
 import localFont from "next/font/local";
-import Navbar from "@/Components/Navbar";
-import Calender from "@/Components/Calender";
-import TaskBanner from "@/Components/TaskBanner";
+
+import Mainstate from "@/Components/Context/Mainstate";
 
 const fonts = localFont({
   src: [
@@ -42,8 +41,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={fonts.className}>
         <div className="flex justify-start items-start">
-          <SideBar />
-          {children}
+          <Mainstate>
+            <SideBar />
+            {children}
+          </Mainstate>
         </div>
       </body>
     </html>

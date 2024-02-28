@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { notification } from "../Consonants";
 import Image from "next/image";
 import { motion, stagger, useAnimate } from "framer-motion";
+
 function Navbar({ name, img, statement }) {
   const [scope, animate] = useAnimate();
 

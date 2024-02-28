@@ -18,7 +18,6 @@ const connectDb = async () => {
 };
 
 export default async function CheckConnection() {
-  console.log("called");
   await connectDb();
 
   return db;

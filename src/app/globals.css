@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .signbtn {
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 2rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    max-width: 19rem;
+    padding: 0.6rem 0.3rem;
+    width: 100%;
+  }
+  .ah {
+    position: absolute;
+  }
+  .btn {
+    @apply max-w-[15rem] w-full bg-Pn-default-500 text-white border-none py-2 rounded-xl;
+  }
+}
+
 html,
 body {
   scroll-behavior: smooth;
@@ -22,4 +43,8 @@ ul {
 svg:hover {
   cursor: pointer;
   stroke: black;
+}
+.error {
+  font-weight: bold;
+  color: red;
 }

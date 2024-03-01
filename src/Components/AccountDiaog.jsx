@@ -27,9 +27,11 @@ function AccountDiaog({ setAdder }) {
         style={{
           boxShadow: "1px 1px 20px #00000085",
         }}
-        className="max-w-[700px] w-full min-h-[90vh] bg-white flex flex-col justify-start items-start rounded-xl py-5 px-5"
+        className="max-w-[700px] w-full  bg-white flex 
+        flex-col justify-start items-start h-[95vh]
+         rounded-xl py-5 overflow-hidden"
       >
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex justify-between items-center  px-5">
           <p className="font-pm font-bol text-[1.4rem]  ">Add Employee</p>
           <div onClick={() => setAdder(false)}>{cross}</div>
         </div>
@@ -37,7 +39,7 @@ function AccountDiaog({ setAdder }) {
           ref={form}
           action="null"
           className="flex flex-col justify-start
-           items-start py-5 gap-5 w-full "
+           items-start py-5 gap-5 w-full  px-5 overflow-y-scroll "
         >
           <div>
             <label htmlFor="name">Employee Name</label>
@@ -46,6 +48,7 @@ function AccountDiaog({ setAdder }) {
               minLength={7}
               type="text"
               id="name"
+              className="forIn"
               placeholder="Enter Employee Name"
             />
           </div>
@@ -57,6 +60,7 @@ function AccountDiaog({ setAdder }) {
               ref={email}
               type="email"
               id="email"
+              className="forIn"
               placeholder="Enter Employee Email"
             />
           </div>
@@ -67,6 +71,7 @@ function AccountDiaog({ setAdder }) {
               minLength={5}
               type="text"
               id="password"
+              className="forIn"
               placeholder="Enter Employee Password"
             />
           </div>
@@ -74,7 +79,7 @@ function AccountDiaog({ setAdder }) {
             <label for="file-upload" class="custom-file-upload">
               Employee Profile
             </label>
-            <input required ref={FileRef} type="file" />
+            <input required ref={FileRef} className="forIn" type="file" />
           </div>
           <div>
             <label htmlFor="des">Description(optional)</label>

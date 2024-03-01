@@ -21,6 +21,9 @@
   .btn {
     @apply max-w-[15rem] w-full bg-Pn-default-500 text-white border-none py-2 rounded-xl disabled:bg-Pn-light-400 disabled:cursor-not-allowed;
   }
+  .forIn {
+    @apply bg-[#e3e3e3] h-[2.5rem] px-[0.5rem] rounded-lg outline-none w-full border-black  focus:bg-white focus:border;
+  }
 }
 
 html,
@@ -54,18 +57,6 @@ form div {
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
-  input {
-    background-color: #e3e3e3;
-    height: 2.5rem;
-    padding: 0px 0.5rem;
-    border-radius: 7px;
-    outline: none;
-    width: 100%;
-    &:focus {
-      background-color: white;
-      border: 1px solid black;
-    }
-  }
 }
 label {
   font-weight: 500;

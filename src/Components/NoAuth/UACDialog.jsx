@@ -60,8 +60,8 @@ export default function UACDialog(props) {
     }
   };
 
-  const handleSign = () => {
-    console.log(passwordValue);
+  const handleSign = async () => {
+    setloading(true);
     if (emailValue === "") {
       seterror1("Enter valid email");
     }
@@ -74,13 +74,14 @@ export default function UACDialog(props) {
 
     if (Auth === "Sign in") {
       if (emailValue !== "" && passwordValue !== "") {
-        signin(emailValue, passwordValue);
+        await signin(emailValue, passwordValue);
       }
     } else if (Auth === "Sign up") {
       if (emailValue !== "" && passwordValue !== "" && nameValue !== "") {
-        signup(nameValue, emailValue, passwordValue);
+        await signup(nameValue, emailValue, passwordValue);
       }
     }
+    setloading(false);
   };
 
   const Otpverify = () => {

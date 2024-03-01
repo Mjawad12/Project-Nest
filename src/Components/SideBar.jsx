@@ -10,10 +10,11 @@ function SideBar() {
   const { admin, authtoken } = useMyContext();
   const [selected, setselected] = useState(0);
   const [scope, animate] = useAnimate();
+
   useEffect(() => {
     authtoken &&
       animate("li", { x: 0, opacity: 1 }, { duration: 1, delay: stagger(0.2) });
-  }, []);
+  }, [authtoken]);
 
   return (
     authtoken && (

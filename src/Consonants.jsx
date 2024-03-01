@@ -533,4 +533,46 @@ const tasks = [
   },
 ];
 
-export { Icons, IconsAdmin, notification, clock, arrowLeft, tasks };
+const addicon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlnsXlink="http://www.w3.org/1999/xlink"
+    fill="white"
+    width="27"
+    height="27"
+    viewBox="0 0 36 36"
+    pointerEvents={"none"}
+  >
+    <path
+      d="M34,18A16,16,0,1,1,18,2,16,16,0,0,1,34,18Zm-8.41-1.5H19.5V10.41a1.5,1.5,0,0,0-3,0V16.5H10.41a1.5,1.5,0,0,0,0,3H16.5v6.09a1.5,1.5,0,0,0,3,0V19.5h6.09a1.5,1.5,0,0,0,0-3Z"
+      class="clr-i-solid clr-i-solid-path-1"
+    />
+    <rect x="0" y="0" width="36" height="36" fill-opacity="0" />
+  </svg>
+);
+
+const cross = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="30"
+    height="30"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <path
+      d="M6.99486 7.00636C6.60433 7.39689 6.60433 8.03005 6.99486 8.42058L10.58 12.0057L6.99486 15.5909C6.60433 15.9814 6.60433 16.6146 6.99486 17.0051C7.38538 17.3956 8.01855 17.3956 8.40907 17.0051L11.9942 13.4199L15.5794 17.0051C15.9699 17.3956 16.6031 17.3956 16.9936 17.0051C17.3841 16.6146 17.3841 15.9814 16.9936 15.5909L13.4084 12.0057L16.9936 8.42059C17.3841 8.03007 17.3841 7.3969 16.9936 7.00638C16.603 6.61585 15.9699 6.61585 15.5794 7.00638L11.9942 10.5915L8.40907 7.00636C8.01855 6.61584 7.38538 6.61584 6.99486 7.00636Z"
+      fill="#0F0F0F"
+    />
+  </svg>
+);
+
+export {
+  Icons,
+  IconsAdmin,
+  notification,
+  clock,
+  arrowLeft,
+  tasks,
+  addicon,
+  cross,
+};

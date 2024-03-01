@@ -37,9 +37,9 @@ export async function POST(req) {
     console.log(er.message);
     if (er.failures) {
       const error = ErrorCheck(er.failures());
-      return Response.json({ error });
+      return Response.json({ error }, { status: 401 });
     } else {
-      return Response.json({ error: er.message });
+      return Response.json({ error: er.message }, { status: 401 });
     }
   }
 }

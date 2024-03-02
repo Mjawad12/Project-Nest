@@ -5,6 +5,7 @@ import ErrorCheck from "../Middleware/ErrorCheck";
 import { v4 } from "uuid";
 import bcrypt from "bcrypt";
 import JWT from "jsonwebtoken";
+import tmc from "temp-mail-check";
 
 export async function POST(req) {
   const data = await req.json();
@@ -18,6 +19,12 @@ export async function POST(req) {
   });
   try {
     assert(data, User);
+    if (!tmc.checkEmail(data.email)) {
+      return Response.json(
+        { error: "Disposable email's are not allowed." },
+        { status: 400 }
+      );
+    }
     const hashedPassword = await bcrypt.hash(
       data.password,
       await bcrypt.genSalt(10)

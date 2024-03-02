@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cloudinary/react": "^1.13.0",
+    "@cloudinary/url-gen": "^1.18.0",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.1",
+    "disposable-email-checker": "^0.1.0",
     "framer-motion": "^11.0.5",
     "is-email": "^1.0.2",
     "jsonwebtoken": "^9.0.2",
@@ -20,6 +23,7 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
     "superstruct": "^1.0.3",
+    "temp-mail-check": "^0.2.3",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

@@ -19,7 +19,7 @@
     position: absolute;
   }
   .btn {
-    @apply max-w-[15rem] w-full bg-Pn-default-500 text-white border-none py-2 rounded-xl disabled:bg-Pn-light-400 disabled:cursor-not-allowed;
+    @apply max-w-[15rem] w-full bg-Pn-default-500 text-white border-none py-2 rounded-xl disabled:bg-Pn-light-400 disabled:cursor-not-allowed hover:bg-Pn-light-400;
   }
   .forIn {
     @apply bg-[#e3e3e3] h-[2.5rem] px-[0.5rem] rounded-lg outline-none w-full border-black  focus:bg-white focus:border;
@@ -52,7 +52,7 @@ svg:hover {
   color: red;
 }
 
-form div {
+form > div {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

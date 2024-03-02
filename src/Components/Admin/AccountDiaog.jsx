@@ -1,14 +1,43 @@
-import { cross } from "@/Consonants";
-import React, { useEffect, useRef } from "react";
+import { cross, eye } from "@/Consonants";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { useMyContext } from "../Context/Mainstate";
 function AccountDiaog({ setAdder }) {
+  const { createEmployee, imageUpload } = useMyContext();
+  const [loading, setloading] = useState(false);
+  const [image, setimage] = useState(null);
   const form = useRef(null);
+  const name = useRef(null);
   const email = useRef(null);
+  const password = useRef(null);
+  const description = useRef(null);
   const FileRef = useRef(null);
 
-  const createUser = (e) => {
+  const imageState = (e) => {
+    if (e.target.files[0]) {
+      setimage(e.target.files[0]);
+    }
+  };
+  useEffect(() => {
+    console.log(image);
+    console.log(process.env.NEXT_PUBLIC_CLOUD_NAME);
+  }, [image]);
+
+  const createUser = async (e) => {
     if (form.current.checkValidity()) {
+      setloading(true);
       e.preventDefault();
+      const url = await imageUpload(image);
+      console.log(url);
+      // url &&
+      //   (await createEmployee(
+      //     name.current.value,
+      //     password.current.value,
+      //     email.current.value,
+      //     url,
+      //     description.current.value
+      //   ));
+      setloading(false);
     }
   };
 
@@ -17,7 +46,7 @@ function AccountDiaog({ setAdder }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-[#ffffffcb] flex justify-center items-center"
+      className="fixed inset-0 bg-[#ffffffcb] flex justify-center items-center z-10"
     >
       <motion.div
         initial={{ y: "100%", opacity: 0 }}
@@ -44,6 +73,7 @@ function AccountDiaog({ setAdder }) {
           <div>
             <label htmlFor="name">Employee Name</label>
             <input
+              ref={name}
               required
               minLength={7}
               type="text"
@@ -66,24 +96,50 @@ function AccountDiaog({ setAdder }) {
           </div>
           <div>
             <label htmlFor="password">Employee Password</label>
-            <input
-              required
-              minLength={5}
-              type="text"
-              id="password"
-              className="forIn"
-              placeholder="Enter Employee Password"
-            />
+            <div className="flex items-center justify-center forIn !p-0 !pr-[0.5rem] ">
+              <input
+                ref={password}
+                required
+                minLength={5}
+                type="password"
+                id="password"
+                onFocus={(e) => {
+                  e.target.parentElement.style.border = "1px solid black";
+                  e.target.parentElement.style.backgroundColor = "white";
+                }}
+                onBlur={(e) => {
+                  e.target.parentElement.style.border = "0px";
+                  e.target.parentElement.style.backgroundColor = "#e3e3e3";
+                }}
+                className="forIn focus:!border-none !h-[2.4rem]"
+                placeholder="Enter Employee Password"
+              />
+              <div
+                onMouseDown={() => (password.current.type = "text")}
+                onMouseUp={() => {
+                  password.current.type = "password";
+                }}
+              >
+                {eye}
+              </div>
+            </div>
           </div>
           <div>
             <label for="file-upload" class="custom-file-upload">
               Employee Profile
             </label>
-            <input required ref={FileRef} className="forIn" type="file" />
+            <input
+              required
+              ref={FileRef}
+              onChange={imageState}
+              className="forIn"
+              type="file"
+            />
           </div>
           <div>
             <label htmlFor="des">Description(optional)</label>
             <textarea
+              ref={description}
               id="des"
               cols="30"
               rows="4"
@@ -93,7 +149,11 @@ function AccountDiaog({ setAdder }) {
             ></textarea>
           </div>
           <div className="w-full flex justify-end items-end">
-            <button onClick={createUser} className="btn !max-w-[7rem]">
+            <button
+              onClick={createUser}
+              disabled={loading}
+              className="btn !max-w-[7rem]"
+            >
               Create
             </button>
           </div>

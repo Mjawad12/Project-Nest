@@ -37,6 +37,7 @@ function Navbar({ name, img, statement }) {
             width="50"
             height="50"
             src={img ? img : `/user.png`}
+            alt="user"
           />
         </motion.div>
       </div>

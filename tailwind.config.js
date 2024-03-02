@@ -17,6 +17,7 @@ module.exports = {
       },
       colors: {
         dullC: "#8E92BC",
+        dullP: "#e3e3e3",
         hoverC: "#F5F5F7",
         Pdark: "#141522",
         "Pn-dark-900": "#10197A",

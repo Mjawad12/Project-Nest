@@ -11,6 +11,7 @@ function EmployeeAdder() {
       <p className="font-pm font-bol text-3xl ">Employees</p>
       <button
         onClick={() => setAdder(!Adder)}
+        id="addEmployee"
         className="flex justify-between items-center 
     bg-Pn-default-500 text-white font-pm font-bol px-3 pr-4
      py-2 rounded-lg gap-3 "

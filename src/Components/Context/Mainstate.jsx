@@ -14,6 +14,7 @@ export default function Mainstate({ children }) {
   const [user, setuser] = useState();
 
   const signup = async (name, email, password) => {
+    seterror(null);
     const data = await fetch(`${url}/signup`, {
       method: "POST",
       body: JSON.stringify({
@@ -85,18 +86,26 @@ export default function Mainstate({ children }) {
       profilepic: profilepic
         ? profilepic
         : "https://i.stack.imgur.com/34AD2.jpg",
-      description: description
-        ? description
-        : `Passionate about efficiency, ${name} brings dedication and a positive attitude to every task. With a keen eye for detail, ${name} excels in delivering high-quality results.`,
+      description:
+        description && description !== ""
+          ? description
+          : `Passionate about efficiency, ${name} brings dedication and a positive attitude to every task. With a keen eye for detail, ${name} excels in delivering high-quality results.`,
     };
 
-    const data = await fetch(`${url}/createEpmloyee`, {
+    const data = await fetch(`${url}/createEmployee`, {
       method: "POST",
-      headers: { authtoken: localStorage.getItem(authtoken) },
+      headers: { authtoken: localStorage.getItem("authtoken") },
       body: JSON.stringify(newEmployee),
     });
     const parsedata = await data.json();
-    setEmpolyees(Empolyees.unshift(newEmployee));
+    if (parsedata.error) {
+      seterror(parsedata.error);
+    } else {
+      let emp = [];
+      emp.unshift(Empolyees);
+      emp.unshift(newEmployee);
+      setEmpolyees(emp);
+    }
   };
 
   const imageUpload = async (image) => {

@@ -151,6 +151,7 @@ export default function UACDialog(props) {
         ErrorCheck(error);
       }
     }
+    console.log(error);
 
     // eslint-disable-next-line
   }, [error]);
@@ -164,6 +165,11 @@ export default function UACDialog(props) {
       seterror3(error.message);
     } else if (error.key === "otp") {
       seterror4(error.message);
+    } else if (
+      error ===
+      "Duplicate entry 'MuhammadJawad@gmail.com' for key 'users.email'"
+    ) {
+      seterror1("User already exsists with this email");
     }
   };
 

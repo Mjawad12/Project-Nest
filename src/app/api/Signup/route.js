@@ -31,7 +31,7 @@ export async function POST(req) {
     );
     const user = `"${v4()}","${data.name}","${
       data.email
-    }","${hashedPassword}",${data.admin}`;
+    }","${hashedPassword}",false ,null,null,null `;
     const addedUser = await db.execute(`INSERT INTO users values(${user})`);
     let id = user.split(",")[0];
     id = id.slice(1, id.length - 1);
@@ -46,6 +46,7 @@ export async function POST(req) {
       const error = ErrorCheck(er.failures());
       return Response.json({ error }, { status: 401 });
     } else {
+      console.log(er);
       return Response.json({ error: er.message }, { status: 401 });
     }
   }

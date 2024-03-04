@@ -12,10 +12,11 @@ export async function GET() {
       throw new Error("Not Authorized");
     }
     const employees = await db.execute(
-      `SELECT userid , username , admin , email , adminId FROM users WHERE adminId="${adminId}" `
+      `SELECT userid , username , admin , email , adminId , description , profilepic FROM users WHERE adminId="${adminId}"`
     );
-    return Response.json({ employees: employees[0][0] });
+    return Response.json({ employees: employees[0] });
   } catch (error) {
+    console.log(error.message);
     return Response.json({ error: "Not Authorized" }, { status: 401 });
   }
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { useMyContext } from "../Context/Mainstate";
 function AccountDiaog({ setAdder }) {
-  const { createEmployee, imageUpload } = useMyContext();
+  const { createEmployee, imageUpload, error } = useMyContext();
   const [loading, setloading] = useState(false);
   const [image, setimage] = useState(null);
   const form = useRef(null);
@@ -12,6 +12,7 @@ function AccountDiaog({ setAdder }) {
   const password = useRef(null);
   const description = useRef(null);
   const FileRef = useRef(null);
+  const [emailError, setemailError] = useState(null);
 
   const imageState = (e) => {
     if (e.target.files[0]) {
@@ -19,24 +20,27 @@ function AccountDiaog({ setAdder }) {
     }
   };
   useEffect(() => {
-    console.log(image);
-    console.log(process.env.NEXT_PUBLIC_CLOUD_NAME);
-  }, [image]);
+    if (
+      error ===
+      "Duplicate entry 'MuhammadJawad@gmail.com' for key 'users.email'"
+    ) {
+      setemailError("User already exsists with this email.");
+    }
+  }, [error]);
 
   const createUser = async (e) => {
     if (form.current.checkValidity()) {
       setloading(true);
       e.preventDefault();
       const url = await imageUpload(image);
-      console.log(url);
-      // url &&
-      //   (await createEmployee(
-      //     name.current.value,
-      //     password.current.value,
-      //     email.current.value,
-      //     url,
-      //     description.current.value
-      //   ));
+      url &&
+        (await createEmployee(
+          name.current.value,
+          password.current.value,
+          email.current.value,
+          url,
+          description.current.value
+        ));
       setloading(false);
     }
   };
@@ -88,11 +92,13 @@ function AccountDiaog({ setAdder }) {
               required
               minLength={20}
               ref={email}
+              onChange={() => setemailError("")}
               type="email"
               id="email"
               className="forIn"
               placeholder="Enter Employee Email"
             />
+            <p className="error">{emailError}</p>
           </div>
           <div>
             <label htmlFor="password">Employee Password</label>

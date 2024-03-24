@@ -2,7 +2,7 @@ const data = [
   {
     day: "S",
     date: "2-18-2024",
-    taskComepleted: "4",
+    taskComepleted: "2",
   },
   {
     day: "M",

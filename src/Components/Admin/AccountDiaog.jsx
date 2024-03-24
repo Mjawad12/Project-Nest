@@ -33,7 +33,8 @@ function AccountDiaog({ setAdder }) {
       setloading(true);
       e.preventDefault();
       const url = await imageUpload(image);
-      url &&
+      const result =
+        url &&
         (await createEmployee(
           name.current.value,
           password.current.value,
@@ -41,6 +42,7 @@ function AccountDiaog({ setAdder }) {
           url,
           description.current.value
         ));
+      result && setAdder(false);
       setloading(false);
     }
   };

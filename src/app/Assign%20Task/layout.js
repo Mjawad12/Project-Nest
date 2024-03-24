@@ -1,10 +1,10 @@
 import Navbar from "@/Components/Navbar";
 import React from "react";
 
-async function layout({ children }) {
+function layout({ children }) {
   return (
     <div className="w-full flex flex-col justify-start items-start ">
-      <Navbar statement="Explore Task" />
+      <Navbar statement="Assign Tasks" />
       {children}
     </div>
   );

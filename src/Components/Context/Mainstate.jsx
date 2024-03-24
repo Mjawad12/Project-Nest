@@ -10,7 +10,7 @@ export default function Mainstate({ children }) {
   const [authtoken, setauthtoken] = useState();
   // localStorage.getItem("authtoken")
   const [error, seterror] = useState(null);
-  const [Empolyees, setEmpolyees] = useState([]);
+  const [Empolyees, setEmpolyees] = useState(null);
   const [user, setuser] = useState();
 
   const signup = async (name, email, password) => {
@@ -73,14 +73,14 @@ export default function Mainstate({ children }) {
     }
   };
   const createEmployee = async (
-    name,
+    username,
     password,
     email,
     profilepic,
     description
   ) => {
     const newEmployee = {
-      name,
+      username,
       password,
       email,
       profilepic: profilepic
@@ -102,9 +102,10 @@ export default function Mainstate({ children }) {
       seterror(parsedata.error);
     } else {
       let emp = [];
-      emp.unshift(Empolyees);
+      Empolyees && emp.unshift(...Empolyees);
       emp.unshift(newEmployee);
       setEmpolyees(emp);
+      return true;
     }
   };
 

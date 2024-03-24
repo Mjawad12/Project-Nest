@@ -6,16 +6,16 @@ function EmployeeItem({ username, profilepic, description }) {
   return (
     <div
       className="max-w-[35rem] w-full flex py-2 px-3 
-     rounded-lg gap-3 border border-[#f0f0f0] bg-white "
+     rounded-lg gap-3 border border-primaryWhite bg-white "
     >
       <div className="flex justify-center items-center">
         <div
-          className="rounded-full p-1"
+          className="rounded-full p-1 overflow-hidden"
           style={{ boxShadow: "1px 1px 10px -3px black" }}
         >
           <Image
             src={profilepic}
-            className="w-[150px] rounded-full "
+            className="w-[150px] h-[110px] rounded-full "
             width="5000"
             height="5000"
             alt="employee"
@@ -24,9 +24,9 @@ function EmployeeItem({ username, profilepic, description }) {
       </div>
       <div
         className="flex flex-col  w-full 
-      justify-start items-start gap-3 px-3 border-l border-[#f0f0f0]  "
+      justify-start items-start gap-3 px-3 border-l border-primaryWhite  "
       >
-        <p className="font-pm font-bol text-[1.2rem] w-full border-b py-2 border-[#f0f0f0] ">
+        <p className="font-pm font-bol text-[1.2rem] w-full border-b py-2 border-primaryWhite ">
           {username}
         </p>
         <div>

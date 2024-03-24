@@ -12,7 +12,7 @@ export async function POST(req) {
   const data = await req.json();
   const email = () => define("email", (value) => isEmail(value));
   const User = object({
-    name: size(string(), 5, 20),
+    username: size(string(), 5, 20),
     password: string(),
     email: email(),
     profilepic: string(),
@@ -29,7 +29,7 @@ export async function POST(req) {
       data.password,
       await bcrypt.genSalt(10)
     );
-    const user = `"${v4()}","${data.name}","${
+    const user = `"${v4()}","${data.username}","${
       data.email
     }","${hashedPassword}",false ,"${id}" ,"${data.profilepic}","${
       data.description

@@ -29,6 +29,7 @@ module.exports = {
         "Pn-light-300": "#7E95FF",
         "Pn-light-200": "#BAC8FF",
         "Pn-light-100": "#DCE4FF",
+        primaryWhite: "#f0f0f0",
       },
       fontWeight: {
         bol: "800",
